@@ -1,0 +1,12 @@
+mat-card {
+    margin-top: 20%;
+    background-color: #92C5FC;
+}
+
+mat-card-title, mat-card-subtitle, button {
+    color: #3564A9;
+}
+
+pagination-controls {
+    text-align: center;
+}

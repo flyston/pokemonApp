@@ -1,0 +1,71 @@
+<mat-grid-list cols="1" *ngIf="!pokemon; else divPokemon">
+    <mat-grid-tile>
+        <mat-spinner>
+
+        </mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template class="margin" #divPokemon>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="30px">
+        <div fxFlex="50">
+            <h1>{{ pokemon.name }}</h1>
+            <mat-divider></mat-divider>
+            <h3> Ataques principales: </h3>
+            <mat-list>
+                <mat-list-item *ngFor="let ability of pokemon.abilities">
+                    <p>{{ ability.ability.name }}</p>
+                </mat-list-item>
+            </mat-list>
+            <mat-divider></mat-divider>
+            <h3> Estadísticas base: </h3>
+            <mat-list>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[0].base_stat }} {{ pokemon.stats[0].stat.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[1].base_stat }} {{ pokemon.stats[1].stat.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[2].base_stat }} {{ pokemon.stats[2].stat.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[3].base_stat }} {{ pokemon.stats[3].stat.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[4].base_stat }} {{ pokemon.stats[4].stat.name }}</p>
+                </mat-list-item>
+                <mat-list-item>
+                    <p> {{ pokemon.stats[5].base_stat }} {{ pokemon.stats[5].stat.name }}</p>
+                </mat-list-item>
+            </mat-list>
+
+            <mat-divider></mat-divider>
+            <br>
+
+        </div>
+
+        <div fxFlex="50">
+            <h1>Forma común</h1>
+            <img [src]="pokemon.sprites.front_default">
+            <img [src]="pokemon.sprites.back_default">
+            <mat-divider></mat-divider>
+            <br>
+            <h1>Forma shiny</h1>
+
+            <img [src]="pokemon.sprites.front_shiny">
+            <img [src]="pokemon.sprites.back_shiny">
+            <mat-divider></mat-divider>
+
+            <button mat-button (click)="regresarListado()">
+                Regresar al listado
+            </button>
+
+            <button mat-button (click)="regresarBuscador()">
+                Ir al buscador
+            </button>
+
+        </div>
+
+    </div>
+</ng-template>

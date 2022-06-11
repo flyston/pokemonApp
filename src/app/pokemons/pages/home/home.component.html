@@ -1,0 +1,41 @@
+<mat-sidenav-container color="red" fullscreen>
+
+    <mat-sidenav #sidenav mode="push">
+        <mat-toolbar color="warn">
+            <span>Menú</span>
+
+            <span class="espacio"></span>
+
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button> 
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>Listado de Pokemons</span>
+            </a>
+
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Buscar Pokemons</span>
+            </a>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="espacio"></span>
+        <img class="image" src="/assets/img/International_Pokémon_logo.svg">
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>

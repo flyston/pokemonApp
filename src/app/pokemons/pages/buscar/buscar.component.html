@@ -1,0 +1,29 @@
+<mat-grid-list cols="1" *ngIf="!pokemons; else divPokemon">
+    <mat-grid-tile>
+        <mat-spinner>
+
+        </mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divPokemon>
+    <div fxLayout="column">
+        <div>
+            <h1>Buscador de pokemons</h1>
+            <mat-divider></mat-divider>
+        </div>
+        <div>
+            <h3>Buscador</h3>
+            <mat-form-field>
+                <mat-label>Elige una</mat-label>
+                <input type="text" aria-label="Number" matInput
+                    [matAutocomplete]="auto" (input)="buscando()">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon" (click)="verPokemon(pokemon)">
+                        {{pokemon}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+</ng-template>
